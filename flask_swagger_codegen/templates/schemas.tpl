@@ -2,15 +2,14 @@
 
 {% include '_do_not_change.tpl' %}
 
-from marshmallow import Schema, fields, validate
+from app import ma
 
 {%- for name, schema in schemas.iteritems() %}
 
 
-class {{ name }}Schema(Schema):
-     {%- for n, field in schema.fields.iteritems() %}
-     {{ n }} = {{ field }}
-     {%- endfor %}
+class {{ name }}Schema(ma.ModelSchema):
+     class Meta:
+         model = {{name}}
 
 {%- endfor %}
 

@@ -1,2 +1,5 @@
 Flask-RESTful
 marshmallow
+flask-sqlalchemy
+marshmallow-sqlalchemy
+flask_marshmallow
