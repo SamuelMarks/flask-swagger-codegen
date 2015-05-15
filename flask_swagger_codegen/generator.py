@@ -4,7 +4,6 @@ from jinja2 import Environment, FileSystemLoader
 
 
 class Generator(object):
-
     def __init__(self, model):
         super(Generator, self).__init__()
         self.model = model
@@ -26,6 +25,9 @@ class Generator(object):
 
     def generate_schemas(self):
         return self.render('schemas.tpl', schemas=self.model.schemas)
+
+    def generate_models(self):
+        return self.render('models.tpl', schemas=self.model.schemas)
 
     def generate_validators(self):
         return self.render('validators.tpl', validators=self.model.validators)

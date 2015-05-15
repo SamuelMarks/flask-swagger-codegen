@@ -4,16 +4,19 @@
 
 # models are for SQL-alchemy
 
-from marshmallow import Schema, fields, validate
-from app import db
+from marshmallow import fields
+from app import get_db
+
+
+db = get_db()
 
 {%- for name, schema in schemas.iteritems() %}
 
 
 class {{ name }}(db.Model):
-     {%- for n, field in schema.fields.iteritems() %}
-     {{ n }} = db.Column(db.{{ field }})
-     {%- endfor %}
+    {%- for n, field in schema.fields.iteritems() %}
+    {{n}} = db.Column(db.{{ field }})
+    {%- endfor %}
 
 {%- endfor %}
 

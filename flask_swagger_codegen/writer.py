@@ -41,6 +41,9 @@ def write(model, base_path, app_name='app', overwrite=False):
         schemas=dict(
             path=pj(bp_path, 'schemas.py'),
             overwrite=True),
+        models=dict(
+            path=pj(bp_path, 'models.py'),
+            overwrite=True),
         validators=dict(
             path=pj(bp_path, 'validators.py'),
             overwrite=True),
