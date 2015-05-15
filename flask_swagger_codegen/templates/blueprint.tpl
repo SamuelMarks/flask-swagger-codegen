@@ -12,5 +12,6 @@ api = restful.Api(bp, catch_all_404s=True)
 for route in routes:
     api.add_resource(route.pop('resource'), *route.pop('urls'), **route)
 
+
 class Resource(restful.Resource):
     method_decorators = [request_validate, response_filter]

@@ -2,11 +2,9 @@
 
 {% include '_do_not_change.tpl' %}
 
-from app import get_ma
+from app import ma
 from models import {{', '.join(schemas.keys())}}
 
-
-ma = get_ma()
 
 {%- for name, schema in schemas.iteritems() %}
 

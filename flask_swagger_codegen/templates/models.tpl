@@ -5,10 +5,8 @@
 # models are for SQL-alchemy
 
 from marshmallow import fields
-from app import get_db
+from app import db
 
-
-db = get_db()
 
 {%- for name, schema in schemas.iteritems() %}
 
