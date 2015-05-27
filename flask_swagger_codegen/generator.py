@@ -16,41 +16,41 @@ class Generator(object):
         return template.render(*args, **kwargs)
 
     def generate_requirements(self):
-        return self.render('requirements.tpl')
+        return self.render('requirements.py.j2')
 
     def generate_routes(self):
         return self.render(
-            'routes.tpl',
+            'routes.py.j2',
             routes=self.model.routes, resources=self.model.resources)
 
     def generate_schemas(self):
-        return self.render('schemas.tpl', schemas=self.model.schemas)
+        return self.render('schemas.py.j2', schemas=self.model.schemas)
 
     def generate_models(self):
-        return self.render('models.tpl', schemas=self.model.schemas)
+        return self.render('models.py.j2', schemas=self.model.schemas)
 
     def generate_validators(self):
-        return self.render('validators.tpl', validators=self.model.validators)
+        return self.render('validators.py.j2', validators=self.model.validators)
 
     def generate_filters(self):
-        return self.render('filters.tpl', filters=self.model.filters)
+        return self.render('filters.py.j2', filters=self.model.filters)
 
     def generate_views(self):
         for view, ins in self.model.resources_group.iteritems():
-            yield (view, self.render('views.tpl', resources=ins))
+            yield (view, self.render('views.py.j2', resources=ins))
 
     def generate_init(self):
-        return self.render('init.tpl')
+        return self.render('init.py.j2')
 
     def generate_api(self):
-        return self.render('api.tpl')
+        return self.render('api.py.j2')
 
     def generate_app(self):
-        return self.render('app.tpl', model=self.model)
+        return self.render('app.py.j2', model=self.model)
 
     def generate_blueprint(self):
-        return self.render('blueprint.tpl', model=self.model)
+        return self.render('blueprint.py.j2', model=self.model)
 
     def generate_view_tests(self):
         for view, ins in self.model.resources_group.iteritems():
-            yield (view, self.render('view_test.tpl', resources=ins))
+            yield (view, self.render('view_test.py.j2', resources=ins))
