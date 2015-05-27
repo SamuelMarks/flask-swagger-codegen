@@ -12,6 +12,8 @@ db = SQLAlchemy()
 
 
 class {{ name }}(db.Model):
+    __tablename__ = '{{ name | lower }}s'
+    id = db.Column(db.Integer(), primary_key=True)
     {%- for n, field in schema.fields.iteritems() %}
     {{n}} = db.Column(db.{{ field | replace('fields.', '') }})
     {%- endfor %}
