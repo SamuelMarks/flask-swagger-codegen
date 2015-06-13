@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-{% include '_do_not_change.tpl' %}
+{% include '_do_not_change.j2' %}
 
-from app import ma
 from models import {{', '.join(schemas.keys())}}
-
+from flask_marshmallow import Marshmallow
+ma = Marshmallow()
 
 {%- for name, schema in schemas.iteritems() %}
 
